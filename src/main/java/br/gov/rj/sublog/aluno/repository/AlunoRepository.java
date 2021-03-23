@@ -13,7 +13,10 @@ public class AlunoRepository implements Serializable {
 
 	private EntityManager em;
 
-	public AlunoRepository(EntityManager em) {
+	public AlunoRepository() {
+	}
+	
+	public void setEntityManager(EntityManager em) {
 		this.em = em;
 	}
 

@@ -2,7 +2,6 @@ package br.gov.rj.sublog.aluno.controller;
 
 import java.io.IOException;
 
-import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +21,8 @@ public class AlunoController extends HttpServlet {
 	private AlunoRepository repository;
 	
 	public AlunoController() {
-		this.repository = new AlunoRepository(HibernateUtil.getEntitymanager());
+		this.repository = new AlunoRepository();
+		this.repository.setEntityManager(HibernateUtil.getEntitymanager());
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
