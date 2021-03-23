@@ -13,27 +13,30 @@ public class AlunoRepository implements Serializable {
 
 	private EntityManager em;
 
-	public AlunoRepository() {
-	}
+	public AlunoRepository() {}
 	
 	public void setEntityManager(EntityManager em) {
 		this.em = em;
 	}
 
 	public void manterAluno(Aluno aluno) {
-		em.persist(aluno);
+		this.em.getTransaction().begin();
+		this.em.persist(aluno);
+		this.em.getTransaction().commit();
 	}
 	
 	public Aluno buscaAluno(long id_buscado) {
-		return em.find(Aluno.class, id_buscado);
+		return this.em.find(Aluno.class, id_buscado);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Aluno> listarAlunos() {
-		return em.createNativeQuery("select * from aluno").getResultList();
+		return this.em.createNativeQuery("select * from aluno").getResultList();
 	}
 
 	public void apagarAluno(Aluno aluno) {
-		em.remove(aluno);
+		this.em.getTransaction().begin();
+		this.em.remove(aluno);
+		this.em.getTransaction().commit();
 	}
 }

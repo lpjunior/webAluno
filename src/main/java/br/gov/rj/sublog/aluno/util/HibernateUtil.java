@@ -7,8 +7,6 @@ import javax.persistence.Persistence;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import jdk.internal.org.jline.utils.Log;
-
 public class HibernateUtil {
 	private static final Logger logger = LogManager.getLogger(HibernateUtil.class);
 	private static final EntityManager entityManager = buildEntityManagerFactory();

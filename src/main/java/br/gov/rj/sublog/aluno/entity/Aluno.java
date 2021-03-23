@@ -9,14 +9,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-@Entity(name = "alunos")
+@Entity
+@Table(name = "alunos")
 public class Aluno implements Serializable {
 
 	private static final long serialVersionUID = -2166068925524035229L;
 
-	@Id // constraint primary key
-	@GeneratedValue(strategy = GenerationType.AUTO) // auto_increment
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_aluno")
 	private Long id;
 	@Column(unique = true, nullable = false)
@@ -28,13 +30,11 @@ public class Aluno implements Serializable {
 	@Column(nullable = false, length = 15)
 	private String telefone;
 	
-	// 1 - 1 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 
 	public Aluno() {}
 
-	// (alt + shift + S) + O
 	public Aluno(String matricula, String nome, String email, String telefone) {
 		this.matricula = matricula;
 		this.nome = nome;
@@ -50,7 +50,6 @@ public class Aluno implements Serializable {
 		this.telefone = telefone;
 	}
 
-	// (alt + shift + S) + R
 	public Long getId() {
 		return id;
 	}
@@ -99,7 +98,6 @@ public class Aluno implements Serializable {
 		this.endereco = endereco;
 	}
 
-	// (alt + shift + S) + H
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -131,7 +129,6 @@ public class Aluno implements Serializable {
 		return true;
 	}
 
-	// (alt + shift + S) + S
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
