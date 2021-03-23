@@ -17,7 +17,7 @@ public class HibernateUtil {
 
 		try {
 			System.out.println("===================================> PASSOU AQUI 1 <===================================");
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("sublog-pu");
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory("alunopu");
 			System.out.println("===================================> PASSOU AQUI 2 <===================================");
 			EntityManager em = emf.createEntityManager();
 			System.out.println("===================================> PASSOU AQUI 3 <===================================");
