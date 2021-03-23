@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.gov.rj.sublog.aluno.entity.Aluno;
+import br.gov.rj.sublog.aluno.entity.Endereco;
 import br.gov.rj.sublog.aluno.repository.AlunoRepository;
 import br.gov.rj.sublog.aluno.util.HibernateUtil;
-import br.gov.rj.sublog.alunos.entity.Aluno;
-import br.gov.rj.sublog.alunos.entity.Endereco;
 
 @WebServlet({ "/addaluno", "/edtaluno", "/listaluno", "/findaluno", "/delaluno" })
 public class AlunoController extends HttpServlet {

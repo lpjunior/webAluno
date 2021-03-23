@@ -1,4 +1,4 @@
-package br.gov.rj.sublog.alunos.entity;
+package br.gov.rj.sublog.aluno.entity;
 
 import java.io.Serializable;
 

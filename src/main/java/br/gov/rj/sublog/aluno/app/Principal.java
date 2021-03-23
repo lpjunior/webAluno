@@ -1,4 +1,4 @@
-package br.gov.rj.sublog.alunos.app;
+package br.gov.rj.sublog.aluno.app;
 
 import br.gov.rj.sublog.aluno.repository.AlunoRepository;
 import br.gov.rj.sublog.aluno.util.HibernateUtil;

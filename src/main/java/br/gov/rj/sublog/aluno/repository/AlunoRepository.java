@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.gov.rj.sublog.alunos.entity.Aluno;
+import br.gov.rj.sublog.aluno.entity.Aluno;
 
 public class AlunoRepository implements Serializable {
 
