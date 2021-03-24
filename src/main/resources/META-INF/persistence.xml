@@ -22,7 +22,7 @@
 			<property name="hibernate.jdbc.wrap_result_sets" value="false" />
 			<property name="hibernate.hibernate.cache.use_query_cache" value="true" />
 			<property name="hibernate.jdbc.time_zone" value="UTC" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dbsublog" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dbsublog?createDatabaseIfNotExist=true" />
 			<property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />
 
 			<!-- Dialeto do SGBD -->
