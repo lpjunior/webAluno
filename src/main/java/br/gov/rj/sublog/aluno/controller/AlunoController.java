@@ -22,7 +22,7 @@ public class AlunoController extends HttpServlet {
 	
 	public AlunoController() {
 		this.repository = new AlunoRepository();
-		this.repository.setEntityManager(HibernateUtil.getEntitymanager());
+		repository.setEntityManager(HibernateUtil.getEntitymanager());
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -55,6 +55,11 @@ public class AlunoController extends HttpServlet {
 		Aluno aluno = new Aluno();
 		Endereco endereco = new Endereco();
 		// dados básicos
+		
+		if(!request.getParameter("inputid").isBlank() || !request.getParameter("inputid").isEmpty()) {
+			aluno.setId(Long.parseLong(request.getParameter("inputid")));
+		}
+		
 		aluno.setNome(request.getParameter("inputnome"));
 		aluno.setMatricula(request.getParameter("inputmatricula"));
 		aluno.setEmail(request.getParameter("inputemail"));
@@ -73,14 +78,23 @@ public class AlunoController extends HttpServlet {
 	}
 
 	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("lista", repository.listarAlunos());
+		request.getRequestDispatcher("/home.jsp").forward(request, response);
 	}
 	
 	private void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		cadastrar(request, response);
 	}
 	
 	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
+		
+		request.setAttribute("aluno", repository.buscaAluno(Long.parseLong(request.getParameter("id"))));
+		listar(request, response);
 	
+	}
 	private void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		repository.apagarAluno(Long.parseLong(request.getParameter("id")));
+		listar(request, response);
 	}
 }

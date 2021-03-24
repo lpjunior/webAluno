@@ -1,3 +1,4 @@
+  
 package br.gov.rj.sublog.aluno.util;
 
 import javax.persistence.EntityManager;
@@ -10,15 +11,14 @@ import org.apache.log4j.Logger;
 public class HibernateUtil {
 	private static final Logger logger = LogManager.getLogger(HibernateUtil.class);
 	private static final EntityManager entityManager = buildEntityManagerFactory();
+	
+	private static final String PERSISTENCE_UNIT = "alunopu";
 
 	private static EntityManager buildEntityManagerFactory() {
 
 		try {
-			System.out.println("===================================> PASSOU AQUI 1 <===================================");
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("alunopu");
-			System.out.println("===================================> PASSOU AQUI 2 <===================================");
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 			EntityManager em = emf.createEntityManager();
-			System.out.println("===================================> PASSOU AQUI 3 <===================================");
 			return em;
 		} catch (Exception e) {
 			e.printStackTrace();
